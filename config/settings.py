@@ -1,12 +1,11 @@
 import os
 import secrets
 from typing import List
-from pydantic import AnyHttpUrl, BaseSettings
+from pydantic_settings import BaseSettings  # Corrected import
+from pydantic import AnyHttpUrl
 from dotenv import load_dotenv
 
 load_dotenv()
-
-
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api-v1"
@@ -16,6 +15,5 @@ class Settings(BaseSettings):
 
     class Config:
         case_sensitive = True
-
 
 settings = Settings()
